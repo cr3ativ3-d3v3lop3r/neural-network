@@ -22,7 +22,6 @@ class FileReader
 
         string getFileName();
         vector<string> getFileLines();
-       
     private:
         string _fileName;
         vector<string> _fileLines;

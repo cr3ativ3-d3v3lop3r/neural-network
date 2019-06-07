@@ -7,24 +7,28 @@
 
 #include <iostream>
 #include <vector>
-#include "../include/FileReader.h"
+
+#include "../include/Neuron.h"
+#include "../include/Matrix.h"
+#include "../include/NeuralNetwork.h"
 
 using namespace std;
 
 int main(void)
 {
+    vector<int> topology;
+    topology.push_back(3);
+    topology.push_back(2);
+    topology.push_back(3);
 
-    FileReader* fr = new FileReader("../../resources/data.dat");
+    vector<double> input;
+    input.push_back(1.0);
+    input.push_back(0.0);
+    input.push_back(1.0);
 
-    vector<string> lines = fr->getFileLines();
-
-    // Secondly, display the file lines
-    for (size_t i = 0; i < lines.size(); ++i)
-    {
-        cout << lines[i] << endl;
-    }
-
-    delete fr;
+    NeuralNetwork *nn = new NeuralNetwork(topology);
+    nn->setCurrentInput(input);
+    nn->printToConsole();
 
     cin.ignore(0);
 

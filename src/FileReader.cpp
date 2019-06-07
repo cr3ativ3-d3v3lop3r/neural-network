@@ -40,7 +40,7 @@ vector<string> FileReader::getFileLines()
 void FileReader::readFileLines()
 {
     ifstream file(_fileName);
-    
+
     for (string line; getline(file, line); )
     {
        _fileLines.push_back(line);
