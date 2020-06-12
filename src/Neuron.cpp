@@ -7,15 +7,13 @@
 
 #include "../include/Neuron.h"
 
-Neuron::Neuron(double val)
-{
+Neuron::Neuron(double val) {
     this->val = val;
     activate();
     derivative();
 }
 
-void Neuron::setVal(double val)
-{
+void Neuron::setVal(double val) {
     this->val = val;
     activate();
     derivative();
@@ -24,14 +22,12 @@ void Neuron::setVal(double val)
 
 // Fast Sigmoid Function
 // f(x) = x / (1 + |x|)
-void Neuron::activate()
-{
+void Neuron::activate() {
     this->activatedVal = this->val / (1 + abs(this->val));
 }
 
  // Derivative for fast sigmoid function
 // f'(x) = f(x) * (1 - f(x))
-void Neuron::derivative()
-{
+void Neuron::derivative() {
     this->derivedVal = this->activatedVal * (1 - this->activatedVal);
 }

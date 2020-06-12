@@ -25,28 +25,22 @@ NeuralNetwork::NeuralNetwork(vector<int> topology)
     }
 }
 
-void NeuralNetwork::setCurrentInput(vector<double> input)
-{
+void NeuralNetwork::setCurrentInput(vector<double> input) {
     this->input = input;
 
-    for(unsigned long i = 0; i < input.size(); i++)
-    {
+    for(unsigned long i = 0; i < input.size(); i++) {
         this->layers.at(0)->setVal(i, input.at(i));
     }
 }
 
-void NeuralNetwork::printToConsole()
-{
-    for(unsigned long i = 0; i < this->layers.size(); i++)
-    {
+void NeuralNetwork::printToConsole() {
+    for(unsigned long i = 0; i < this->layers.size(); i++) {
         cout << "LAYER: " << i << endl;
-        if(i == 0)
-        {
+        if(i == 0) {
            Matrix *m = this->layers.at(i)->matrixifyVals();
            m->printToConsole();
         }
-        else
-        {
+        else {
             Matrix *m = this->layers.at(i)->matrixifyActivatedVals();
             m->printToConsole();
         }

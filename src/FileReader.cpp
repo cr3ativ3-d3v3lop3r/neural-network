@@ -8,8 +8,7 @@
 #include "../include/FileReader.h"
 
 // Class constructor
-FileReader::FileReader(string fileName)
-{
+FileReader::FileReader(string fileName) {
     // Init members
     _fileName = fileName;
 }
@@ -20,15 +19,12 @@ FileReader::~FileReader()
 }
 
 // FileName accessor
-string FileReader::getFileName()
-{
+string FileReader::getFileName() {
     return _fileName;
 }
 
 // FileLines accessor
-vector<string> FileReader::getFileLines()
-{
-
+vector<string> FileReader::getFileLines() {
     // First lets read the file lines into
     // a vector we can deal with.
     readFileLines();
@@ -37,12 +33,10 @@ vector<string> FileReader::getFileLines()
 }
 
 // Read the lines of a file
-void FileReader::readFileLines()
-{
+void FileReader::readFileLines() {
     ifstream file(_fileName);
 
-    for (string line; getline(file, line); )
-    {
+    for (string line; getline(file, line); ) {
        _fileLines.push_back(line);
     }
 }

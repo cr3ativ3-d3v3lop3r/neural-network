@@ -14,8 +14,7 @@
 
 using namespace std;
 
-int main(void)
-{
+int main(void) {
     vector<int> topology;
     topology.push_back(3);
     topology.push_back(2);

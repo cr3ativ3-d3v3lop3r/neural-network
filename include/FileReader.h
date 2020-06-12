@@ -14,8 +14,7 @@
 
 using namespace std;
 
-class FileReader
-{
+class FileReader {
     public:
         FileReader(string fileName = "");
         ~FileReader();

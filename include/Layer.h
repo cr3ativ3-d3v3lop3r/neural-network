@@ -15,8 +15,7 @@
 
 using namespace std;
 
-class Layer
-{
+class Layer {
     public:
         Layer(int size);
 

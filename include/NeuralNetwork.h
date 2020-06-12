@@ -15,8 +15,7 @@
 
 using namespace std;
 
-class NeuralNetwork
-{
+class NeuralNetwork {
     public:
         NeuralNetwork(vector<int> topology);
 

@@ -7,20 +7,17 @@
 
 #include "../include/Matrix.h"
 
-Matrix::Matrix(int numRows, int numCols, bool isRandom)
-{
+Matrix::Matrix(int numRows, int numCols, bool isRandom) {
     this->numRows = numRows;
     this->numCols = numCols;
 
-    for(int i = 0; i < numRows; i++)
-    {
+    for(int i = 0; i < numRows; i++) {
         vector<double> colValues;
 
-        for(int j = 0; j < numCols; j++)
-        {
+        for(int j = 0; j < numCols; j++) {
             double r = 0.00;
-            if(isRandom)
-            {
+
+            if(isRandom) {
                 r = this->generateRandomNumber();
             }
 
@@ -30,8 +27,7 @@ Matrix::Matrix(int numRows, int numCols, bool isRandom)
     }
 }
 
-double Matrix::generateRandomNumber()
-{
+double Matrix::generateRandomNumber() {
     random_device rd;
     mt19937 gen(rd());
     uniform_real_distribution<> dis(0, 1);
@@ -39,26 +35,20 @@ double Matrix::generateRandomNumber()
     return dis(gen);
 }
 
-void Matrix::printToConsole()
-{
-    for(int i = 0; i < numRows; i++)
-    {
-        for(int j = 0; j < numCols; j++)
-        {
+void Matrix::printToConsole() {
+    for(int i = 0; i < numRows; i++) {
+        for(int j = 0; j < numCols; j++) {
             cout << this->values.at(i).at(j) << "\t\t";
         }
         cout << endl;
     }
 }
 
-Matrix *Matrix::transpose()
-{
+Matrix *Matrix::transpose() {
     Matrix *m = new Matrix(this->numCols, this->numRows, false);
 
-    for(int i = 0; i < numRows; i++)
-    {
-        for(int j = 0; j < numCols; j++)
-        {
+    for(int i = 0; i < numRows; i++) {
+        for(int j = 0; j < numCols; j++) {
             m->setValue(j, i, this->getValue(i, j));
         }
     }
