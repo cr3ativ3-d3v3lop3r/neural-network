@@ -7,19 +7,16 @@
 
 #include "../include/NeuralNetwork.h"
 
-NeuralNetwork::NeuralNetwork(vector<int> topology)
-{
+NeuralNetwork::NeuralNetwork(vector<int> topology) {
     this->topology = topology;
     this->topologySize = topology.size();
 
-    for(int i = 0; i < this->topologySize; i++)
-    {
+    for(int i = 0; i < this->topologySize; i++) {
         Layer *l = new Layer(topology.at(i));
         this->layers.push_back(l);
     }
 
-    for(int i = 0; i < (this->topologySize - 1); i++)
-    {
+    for(int i = 0; i < (this->topologySize - 1); i++) {
         Matrix *m = new Matrix(topology.at(i), topology.at(i + 1), true);
         this->weightMatrices.push_back(m);
     }
